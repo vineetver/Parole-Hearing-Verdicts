@@ -30,6 +30,22 @@ Attributes:
   - Next Parole Review Date:  Date of inmate’s next parole hearing.
   - Parole Review Status: Does the inmate currently have a parole review in progress
 
-### Class Attribute
+### Requirements
+```
+python
+numpy,
+pandas,
+seaborn,
+matplotlib,
+sklearn,
+keras,
+tensorflow
+```
 
-Last Parole Decision: The decision of the inmate’s last parole hearing. If the inmate did not have a hearing yet, the entry is “none”
+### Running the code
+
+The main file containing all the models is `classifiers.ipynb` notebook. There are two other files specifically for preprosessing and feature selection `Preprocessing.ipynb and featureselection.ipynb`.
+
+### Find more like this on
+
+[Goodbyeweekend.io](https://www.goodbyeweekend.io/)
