@@ -49,3 +49,7 @@ The main file containing all the models is `classifiers.ipynb` notebook. There a
 ### Find more like this on
 
 [Goodbyeweekend.io](https://www.goodbyeweekend.io/)
+
+### Credits
+
+[Matthew Bhaya](mailto:mbhaya@bu.edu)
