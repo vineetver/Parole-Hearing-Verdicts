@@ -1,7 +1,4 @@
-# Predicting Texas Prisoners’ Parole Hearing Verdicts
-
-### About the Dataset
-
+## About
 The dataset contains 20 Attributes. 118,320 tuples. It contains on hand inmate population with relevant demographic, offense, and parole information. It was created on August 30, 2021
 
 Source: https://data.texas.gov/dataset/High-Value-Dataset-July-2021/ymcy-45cn 
@@ -30,26 +27,46 @@ Attributes:
   - Next Parole Review Date:  Date of inmate’s next parole hearing.
   - Parole Review Status: Does the inmate currently have a parole review in progress
 
-### Requirements
-```
-python
-numpy,
-pandas,
-seaborn,
-matplotlib,
-sklearn,
-keras,
-tensorflow
-```
+This project aims to explore the field of machine learning by using classification techniques to predict whether an inmate will get released on parole or not at their last Parole Hearing based on their prisoner profile.
 
+## Getting Started
+
+### Dependancies
+
+List of all the libraries you need to run the code.
+
+  ```sh
+tensorflow
+python
+numpy
+pandas
+seaborn
+matplotlib
+sklearn
+keras
+  ```
+
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+  ```sh
+  $ conda create -n "env-name" python=3.x, anaconda, tensorflow
+ 
+  $ conda activate "env-name"
+  
+  $ cd Parole-Hearing-Verdicts
+  
+  $ jupyter notebook
+  ```
+  
 ### Running the code
 
 The main file containing all the models is `classifiers.ipynb` notebook. There are two other files specifically for preprosessing and feature selection `Preprocessing.ipynb and featureselection.ipynb`.
 
-### Find more like this on
 
-[Goodbyeweekend.io](https://www.goodbyeweekend.io/)
+## Contact
 
-### Credits
+Vineet Verma - vineetver@hotmail.com - [Goodbyeweekend.io](https://www.goodbyeweekend.io/)
 
-[Matthew Bhaya](mailto:mbhaya@bu.edu)
+Matthew Bhaya - mbhaya@bu.edu
