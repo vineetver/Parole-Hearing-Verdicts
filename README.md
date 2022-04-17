@@ -62,7 +62,7 @@ keras
   
 ### Running the code
 
-The main file containing all the models is `classifiers.ipynb` notebook. There are two other files specifically for preprosessing and feature selection `Preprocessing.ipynb and featureselection.ipynb`.
+The main file containing all the models is `classifiers.ipynb` notebook. There are two other files specifically for preprosessing and feature selection `Preprocessing.ipynb` and `featureselection.ipynb`.
 
 
 ## Contact
