@@ -2,9 +2,9 @@
 
 ## Task Description
 
-The task is to build a machine learning pipeline that will predict whether an inmate will get parole or not based on
+The task is to build a **machine learning pipeline** that will predict whether an inmate will get parole or not based on
 their prisoner profile. A prisoner profile is a collection of features that are used to predict parole. Since the
-target is binary, it is a classification task.
+target is binary, it is a **classification task**.
 
 ## About the Data
 
