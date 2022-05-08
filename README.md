@@ -128,13 +128,7 @@ class Model(ABC):
 
 ## Roadmap
 
-- [x] Preprocessing
-- [x] Visualization
-- [x] Model Creation
-- [x] Model Training
-- [x] Evaluation
-- [x] Model Training
-- [x] Evaluation
+- [x] Prototype
 - [ ] Pipeline
 
 ## Dependencies
