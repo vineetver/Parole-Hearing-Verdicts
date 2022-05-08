@@ -126,6 +126,17 @@ class Model(ABC):
         pass
 ```
 
+## Roadmap
+
+- [x] Preprocessing
+- [x] Visualization
+- [x] Model Creation
+- [x] Model Training
+- [x] Evaluation
+- [x] Model Training
+- [x] Evaluation
+- [ ] Pipeline
+
 ## Dependencies
 
     $ pip install -r requirements.txt
