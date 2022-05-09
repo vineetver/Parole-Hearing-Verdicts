@@ -1,0 +1,9 @@
+pandas
+scikit-learn
+matplotlib
+tensorflow
+keras
+sodapy
+boto3
+s3fs
+pyarrow
