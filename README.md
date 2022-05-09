@@ -6,7 +6,7 @@ The task is to build a **machine learning pipeline** that will predict whether a
 their prisoner profile. A prisoner profile is a collection of features that are used to predict parole. Since the
 target is binary, it is a **classification task**.
 
-The best model so far is `KNeighborsClassifier` with a **10-Fold validation** on test set of `78%`.
+The best model so far is `KNeighborsClassifier` with a **10-Fold validation** on test set of `82%`.
 
 ## About the Data
 
