@@ -17,7 +17,9 @@ setup(name='Texas_Parole_Verdicts',
           'pyarrow',
           'boto3',
           'sodapy',
-          'tensorflow'
+          'tensorflow',
+          'jupyter',
+          'keras'
       ],
       entry_points={
           'console_scripts': [
