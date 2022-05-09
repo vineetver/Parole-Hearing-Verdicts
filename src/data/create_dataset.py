@@ -16,10 +16,8 @@ def read_data() -> pd.DataFrame:
     """
     Reads the data for a given year and month.
     Args:
-        year: The year to read.
-        month: The month to read.
     Returns:
-        The data for the given year and month.
+        The raw parole data in the S3 bucket.
     """
 
     file_path = get_raw_data_path()
@@ -36,10 +34,8 @@ def get_raw_data_path() -> str:
     """
     Gets the file path for the given year and month.
     Args:
-        year: The year to read.
-        month: The month to read.
     Returns:
-        The file path for the given year and month.
+        The file path for raw parole data.
     """
 
     url = f's3://{AWS_BUCKET_NAME}'
@@ -56,7 +52,7 @@ def write_data(df: pd.DataFrame, suffix: str, scratch: bool = True) -> str:
         suffix: The suffix to add to the file name.
         scratch: Write the file with the suffix
     Returns:
-        None
+        str: The file path for the written file.
     """
 
     assert suffix.endswith('.csv'), 'Suffix must end with .csv'
@@ -78,7 +74,7 @@ def get_output_path(stage: str, version: str = None) -> str:
         stage: The stage to write to.
         version: The version of the stage to write to.
     Returns:
-        The file path for the given stage and version.
+        str: The file path for the given stage and version.
     """
 
     output_path = f'{stage}'
@@ -102,7 +98,7 @@ def write_output_data(df: pd.DataFrame, stage: str, version: str = None, overwri
         version: The version of the stage to write to.
         overwrite: Check if the file already exists
     Returns:
-        None
+        str: The file path for the written file.
     """
 
     assert len(stage) > 0, 'Please provide a stage name to write to. (e.g. "clean", "preprocess")'
@@ -125,7 +121,7 @@ def get_output_data(stage: str, version: str = None) -> pd.DataFrame:
         stage: The stage to read from.
         version: The version of the stage to read from.
     Returns:
-        The dataframe for the given stage and version.
+        pd.Dataframe: The dataframe for the given stage and version.
     """
 
     assert len(stage) > 0, 'Please provide a stage name to read from. (e.g. "clean", "preprocess")'
@@ -150,7 +146,7 @@ def get_time_stamp() -> str:
     """
     This function returns the time stamp for the current time.
     Returns:
-        The time stamp for the given year and month.
+        str: time stamp (current).
     """
 
     time_stamp = pd.Timestamp.now().strftime('%Y%m%d-%H%M%S')
@@ -162,7 +158,7 @@ def get_latest_time_stamp(files: list) -> datetime:
     """
     This function returns the time stamp for the latest file.
     Returns:
-        The time stamp for the latest file.
+        datetime: The time stamp for the latest file.
     """
 
     format = '%Y%m%d-%H%M%S'
@@ -180,10 +176,12 @@ def get_latest_time_stamp(files: list) -> datetime:
 def list_files(dictionary: str) -> list:
     """
     This function returns a list of files in the given path.
+    Paths are relative to the root of the bucket. e.g. 'data/clean/'
+
     Args:
         dictionary: The dictionary to search
     Returns:
-        The list of files in the given dictionary.
+        list: The list of files in the AWS S3 Filesystem.
     """
 
     fs = s3fs.S3FileSystem(key=AWS_ACCESS_KEY, secret=AWS_SECRET_KEY)
