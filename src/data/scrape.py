@@ -1,5 +1,5 @@
 from sodapy import Socrata
-from src.data.create_dataset import write_data
+from src.data.create_dataset import write_data, get_raw_data_path
 import pandas as pd
 import os
 
@@ -36,7 +36,7 @@ def main() -> None:
 
     try:
         # Write the dataframe to AWS S3 Bucket
-        write_data(df, '/paroledata/texas_data.csv')
+        write_data(df, get_raw_data_path())
     except Exception as e:
         print(e)
 
