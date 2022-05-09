@@ -94,11 +94,11 @@ class Model(ABC):
         pass
 
     def split(self, X, Y, test_size: float):
-        """Split the data into training and test sets."""
+        """Split the dataset into training and test sets."""
         pass
 
     def normalize(self, X):
-        """Normalize the data."""
+        """Normalize the dataset."""
         pass
 
     @abstractmethod
@@ -108,7 +108,7 @@ class Model(ABC):
 
     @abstractmethod
     def predict(self, X):
-        """Predict the labels for the given data."""
+        """Predict the labels for the given dataset."""
         pass
 
     @abstractmethod

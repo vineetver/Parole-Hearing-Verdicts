@@ -1,5 +1,5 @@
 from sodapy import Socrata
-from src.data.create_dataset import write_data, get_raw_data_path
+from src.dataset.create_dataset import write_data, get_raw_data_path
 import pandas as pd
 import os
 
@@ -11,7 +11,7 @@ AWS_BUCKET_SECRET = os.environ['AWS_BUCKET_SECRET']
 
 def main() -> None:
     """
-    This function scrapes the data from the Socrata API and stores it in a csv file.
+    This function scrapes the dataset from the Socrata API and stores it in a csv file.
 
     Args:
     Returns:
@@ -22,9 +22,9 @@ def main() -> None:
     datasets = ['tyje-q8w4', 'skhe-r982', 'q4fk-2ptv', 'cg6t-bapy', 'y6p5-x3b9']
 
     # Initialize the client
-    client = Socrata('data.texas.gov', TOKEN)
+    client = Socrata('dataset.texas.gov', TOKEN)
 
-    # Create a dataframe to store the data
+    # Create a dataframe to store the dataset
     df = pd.DataFrame()
 
     # Loop through the datasets

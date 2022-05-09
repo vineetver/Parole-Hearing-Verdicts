@@ -1,23 +1,23 @@
 """
 Create_dataset.py
-Contains functions for importing and exporting data.
+Contains functions for importing and exporting dataset.
 """
 import os
 from datetime import datetime
 import pandas as pd
 import s3fs
 
-AWS_BUCKET_NAME = 'texas-data-bucket'
+AWS_BUCKET_NAME = 'texas-dataset-bucket'
 AWS_ACCESS_KEY = os.environ['ACCESS_KEY_S3']
 AWS_SECRET_KEY = os.environ['ACCESS_KEY_SECRET_S3']
 
 
 def read_data() -> pd.DataFrame:
     """
-    Reads the data for a given year and month.
+    Reads the dataset for a given year and month.
     Args:
     Returns:
-        The raw parole data in the S3 bucket.
+        The raw parole dataset in the S3 bucket.
     """
 
     file_path = get_raw_data_path()
@@ -35,7 +35,7 @@ def get_raw_data_path() -> str:
     Gets the file path for the given year and month.
     Args:
     Returns:
-        The file path for raw parole data.
+        The file path for raw parole dataset.
     """
 
     url = f's3://{AWS_BUCKET_NAME}'
@@ -48,7 +48,7 @@ def write_data(df: pd.DataFrame, suffix: str, scratch: bool = True) -> str:
     """
     This function writes the dataframe to a csv file in the bucket
     Args:
-        df: The data to write.
+        df: The dataset to write.
         suffix: The suffix to add to the file name.
         scratch: Write the file with the suffix
     Returns:
@@ -93,7 +93,7 @@ def write_output_data(df: pd.DataFrame, stage: str, version: str = None, overwri
     """
     This function writes the dataframe to a csv file in the bucket
     Args:
-        df: The data to write.
+        df: The dataset to write.
         stage: The stage to write to (e.g. 'clean', 'preprocess').
         version: The version of the stage to write to.
         overwrite: Check if the file already exists
@@ -103,11 +103,11 @@ def write_output_data(df: pd.DataFrame, stage: str, version: str = None, overwri
 
     assert len(stage) > 0, 'Please provide a stage name to write to. (e.g. "clean", "preprocess")'
 
-    output_path = f's3://{AWS_BUCKET_NAME}/data/{get_output_path(stage, version)}'
+    output_path = f's3://{AWS_BUCKET_NAME}/dataset/{get_output_path(stage, version)}'
     path = os.path.join(output_path + '.csv').replace('\\', '/')
 
     if overwrite is False:
-        assert path not in list_files('data'), 'File already exists'
+        assert path not in list_files('dataset'), 'File already exists'
 
     df.to_csv(path, index=False, storage_options={'key': AWS_ACCESS_KEY, 'secret': AWS_SECRET_KEY})
 
@@ -176,7 +176,7 @@ def get_latest_time_stamp(files: list) -> datetime:
 def list_files(dictionary: str) -> list:
     """
     This function returns a list of files in the given path.
-    Paths are relative to the root of the bucket. e.g. 'data/clean/'
+    Paths are relative to the root of the bucket. e.g. 'dataset/clean/'
 
     Args:
         dictionary: The dictionary to search
