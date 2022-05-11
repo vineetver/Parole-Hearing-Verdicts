@@ -22,8 +22,7 @@ def read_data() -> pd.DataFrame:
 
     file_path = get_raw_data_path()
 
-    df = pd.read_csv(file_path, parse_dates=['projected_release', 'maximum_sentence_date',
-                                             'parole_eligibility_date', 'sentence_date', 'offense_date', 'next_parole_review_date'],
+    df = pd.read_csv(file_path, parse_dates=['projected_release', 'sentence_date', 'offense_date'],
                      infer_datetime_format=True, low_memory=False,
                      storage_options={'key': AWS_ACCESS_KEY, 'secret': AWS_SECRET_KEY})
     return df
@@ -128,13 +127,12 @@ def get_output_data(stage: str, version: str = None) -> pd.DataFrame:
     if version is None:
         version = get_latest_time_stamp(list_files(stage))
 
-    output_path = f's3://{AWS_BUCKET_NAME}/data/{stage}/{version}'
+    output_path = f's3://{AWS_BUCKET_NAME}/{stage}/{version}'
     path = os.path.join(output_path + '.csv').replace('\\', '/')
 
     print(f'Current version: {version}')
 
-    df = pd.read_csv(path, parse_dates=['projected_release', 'maximum_sentence_date',
-                                        'parole_eligibility_date', 'sentence_date', 'offense_date', 'next_parole_review_date'],
+    df = pd.read_csv(path, parse_dates=['projected_release', 'sentence_date', 'offense_date'],
                      infer_datetime_format=True, low_memory=False,
                      storage_options={'key': AWS_ACCESS_KEY, 'secret': AWS_SECRET_KEY})
 

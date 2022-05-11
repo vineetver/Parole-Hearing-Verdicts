@@ -9,9 +9,9 @@ import pandas as pd
 import os
 
 TOKEN = os.environ['SOCRATA_TOKEN']
-AWS_BUCKET_NAME = os.environ['AWS_BUCKET_NAME']
-AWS_BUCKET_KEY = os.environ['AWS_BUCKET_KEY']
-AWS_BUCKET_SECRET = os.environ['AWS_BUCKET_SECRET']
+AWS_BUCKET_NAME = 'texas-data-bucket'
+AWS_ACCESS_KEY = os.environ['ACCESS_KEY_S3']
+AWS_SECRET_KEY = os.environ['ACCESS_KEY_SECRET_S3']
 
 
 def main() -> None:

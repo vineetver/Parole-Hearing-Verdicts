@@ -109,12 +109,10 @@ def binary_label_encoding(df: pd.DataFrame) -> pd.DataFrame:
 def remove_capital_life(df: pd.DataFrame) -> pd.DataFrame:
     """
     This function removes the capital life from Sentence (Years) column.
-    Assumes that life and capital life is 999 years
-    e.g. 'Capital Life' -> '999 years'
+    Assumes that life and capital life is 150 years
+    e.g. 'Capital Life' -> '150 years'
     """
     column = 'sentence_years'
-    df[column] = np.where((df[column] == 'Capital Life') | (df[column] == 'Life'), 999, df[column])
+    df[column] = np.where((df[column] == 'Capital Life') | (df[column] == 'Life'), 150, df[column])
     df[column] = df[column].astype(float)
     return df
-
-
