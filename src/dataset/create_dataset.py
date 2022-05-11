@@ -7,7 +7,7 @@ from datetime import datetime
 import pandas as pd
 import s3fs
 
-AWS_BUCKET_NAME = 'texas-dataset-bucket'
+AWS_BUCKET_NAME = 'texas-data-bucket'
 AWS_ACCESS_KEY = os.environ['ACCESS_KEY_S3']
 AWS_SECRET_KEY = os.environ['ACCESS_KEY_SECRET_S3']
 
@@ -24,7 +24,6 @@ def read_data() -> pd.DataFrame:
 
     df = pd.read_csv(file_path, parse_dates=['projected_release', 'maximum_sentence_date',
                                              'parole_eligibility_date', 'sentence_date', 'offense_date', 'next_parole_review_date'],
-
                      infer_datetime_format=True, low_memory=False,
                      storage_options={'key': AWS_ACCESS_KEY, 'secret': AWS_SECRET_KEY})
     return df
@@ -103,11 +102,11 @@ def write_output_data(df: pd.DataFrame, stage: str, version: str = None, overwri
 
     assert len(stage) > 0, 'Please provide a stage name to write to. (e.g. "clean", "preprocess")'
 
-    output_path = f's3://{AWS_BUCKET_NAME}/dataset/{get_output_path(stage, version)}'
+    output_path = f's3://{AWS_BUCKET_NAME}/data/{get_output_path(stage, version)}'
     path = os.path.join(output_path + '.csv').replace('\\', '/')
 
     if overwrite is False:
-        assert path not in list_files('dataset'), 'File already exists'
+        assert path not in list_files('data'), 'File already exists'
 
     df.to_csv(path, index=False, storage_options={'key': AWS_ACCESS_KEY, 'secret': AWS_SECRET_KEY})
 
@@ -129,7 +128,7 @@ def get_output_data(stage: str, version: str = None) -> pd.DataFrame:
     if version is None:
         version = get_latest_time_stamp(list_files(stage))
 
-    output_path = f's3://{AWS_BUCKET_NAME}/{stage}/{version}'
+    output_path = f's3://{AWS_BUCKET_NAME}/data/{stage}/{version}'
     path = os.path.join(output_path + '.csv').replace('\\', '/')
 
     print(f'Current version: {version}')
