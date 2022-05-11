@@ -48,20 +48,15 @@ Attributes:
 ├── parole
     ├── data           <- data from different stages of the pipeline e.g. clean, processed, etc.
         ├── clean
-            ├── 2022_01
-                ├── 20220507-005720.csv
-                ├── 20220507-155720.csv
-            ├── 2022_02
-                ├── 20220507-005220.csv
-                ├── 20220507-156722.csv
-        
+             ├── 20220507-005720.csv
+             ├── 20220507-155720.csv
+             ├── 20220507-005220.csv
+             ├── 20220507-156722.csv
         ├── processed
-            ├── 2022_01
-                    ├── 20220507-001972.csv
-                    ├── 20220507-191820.csv
-            ├── 2022_02
-                    ├── 20220507-009280.csv
-                    ├── 20220507-198222.csv     
+             ├── 20220507-001972.csv
+             ├── 20220507-191820.csv
+             ├── 20220507-009280.csv
+             ├── 20220507-198222.csv     
     ├── scratch        <- scratch space for intermediate data
     ├── rawdata       <- raw data from TDCJ 
 ```
