@@ -9,7 +9,7 @@ target is binary, it is a **classification task**.
 The best model so far is `RandomForestClassifier` with a **10-Fold validation** on test set of `67%` (F1 score).
 
 The most important feature is `years_from_parole_eligibility` (The number of years since the inmate was eligible for
-parole). The feature was created by using other features such
+parole). It was created by using other features such
 as `'sentence_date', 'offence_date', 'parole_eligibility_date', 'maximum_sentence_date'`
 
 ## About the Data
