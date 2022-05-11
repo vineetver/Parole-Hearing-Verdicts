@@ -6,7 +6,11 @@ The task is to build a **machine learning pipeline** that will predict whether a
 their prisoner profile. A prisoner profile is a collection of features that are used to predict parole. Since the
 target is binary, it is a **classification task**.
 
-The best model so far is `KNeighborsClassifier` with a **10-Fold validation** on test set of `82%`.
+The best model so far is `RandomForestClassifier` with a **10-Fold validation** on test set of `67%` (F1 score).
+
+The most important feature is `years_from_parole_eligibility` (The number of years since the inmate was eligible for
+parole). The feature was created by using other features such
+as `'sentence_date', 'offence_date', 'parole_eligibility_date', 'maximum_sentence_date'`
 
 ## About the Data
 
@@ -134,6 +138,16 @@ class Model(ABC):
 
     $ git clone repo.git
     $ cd repo
+
+    // Install the dependencies
+    $ python setup.py install
+
+    // Run the pipeline
+    (scrape -> clean -> feature_engineering -> train ->  evaluate)
+    $ python main/scrape.py
+    $ python main/clean.py
+    $ python main/feature_engineering.py
+    $ python main/train_model.py
 
 ## Running the tests
 
