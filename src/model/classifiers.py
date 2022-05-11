@@ -9,7 +9,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import StratifiedShuffleSplit, train_test_split, StratifiedKFold
-from sklearn.metrics import confusion_matrix, matthews_corrcoef, ConfusionMatrixDisplay
+from sklearn.metrics import confusion_matrix, matthews_corrcoef, ConfusionMatrixDisplay, f1_score, precision_score
 
 
 class Model(ABC):
@@ -149,10 +149,10 @@ class RandomForestModel(Model, ABC):
             MCC (dict): The metrics MCC.
         """
         assert self.model is not None, "Model has not been trained yet."
-        y_pred = self.predict(X)
+        y_pred = self.model.predict(X)
         mcc = matthews_corrcoef(Y, y_pred)
         return mcc
-
+    
     def cross_validate(self, X, Y, n_splits: int = 10) -> List[float]:
         """Cross validate the model.
 
@@ -165,7 +165,7 @@ class RandomForestModel(Model, ABC):
         """
         assert self.model is not None, "Model has not been trained yet."
         mcc_scores = []
-        for fold, (train, test) in enumerate(StratifiedKFold(n_splits=n_splits, random_state=0).split(X, Y)):
+        for fold, (train, test) in enumerate(StratifiedKFold(n_splits=n_splits).split(X, Y)):
             print('=============================')
             print(f'Fold: {fold}')
             x_train, x_test, y_train, y_test = X[train], X[test], Y[train], Y[test]
@@ -183,7 +183,7 @@ class RandomForestModel(Model, ABC):
             Y: The labels to compare against.
             normalize: Whether to normalize the matrix e.g. 'true', 'pred', 'all' etc
         """
-        y_pred = self.predict(X)
+        y_pred = self.model.predict(X)
         cm = confusion_matrix(Y, y_pred, normalize=normalize, labels=[0, 1])
         disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=[0, 1])
         disp.plot(include_values=True, cmap='Blues')
