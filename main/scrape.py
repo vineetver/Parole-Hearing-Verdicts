@@ -1,3 +1,8 @@
+"""
+This file scrapes High Value Dataset from socrata API, and saves it to a AWS S3 bucket.
+The dataset contains five months of data with duplicates.
+"""
+
 from sodapy import Socrata
 from src.dataset.create_dataset import write_data, get_raw_data_path
 import pandas as pd
@@ -10,14 +15,6 @@ AWS_BUCKET_SECRET = os.environ['AWS_BUCKET_SECRET']
 
 
 def main() -> None:
-    """
-    This function scrapes the dataset from the Socrata API and stores it in a csv file.
-
-    Args:
-    Returns:
-        None
-    """
-
     # Datasets endpoint to scrape
     datasets = ['tyje-q8w4', 'skhe-r982', 'q4fk-2ptv', 'cg6t-bapy', 'y6p5-x3b9']
 
