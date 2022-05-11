@@ -101,7 +101,7 @@ def write_output_data(df: pd.DataFrame, stage: str, version: str = None, overwri
 
     assert len(stage) > 0, 'Please provide a stage name to write to. (e.g. "clean", "preprocess")'
 
-    output_path = f's3://{AWS_BUCKET_NAME}/data/{get_output_path(stage, version)}'
+    output_path = f's3://{AWS_BUCKET_NAME}/{get_output_path(stage, version)}'
     path = os.path.join(output_path + '.csv').replace('\\', '/')
 
     if overwrite is False:
