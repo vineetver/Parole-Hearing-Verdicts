@@ -33,7 +33,7 @@ def main() -> None:
     df = binary_label_encoding(df)
     df = remove_capital_life(df)
 
-    write_output_data(df, 'clean', version='yes')
+    write_output_data(df, 'data/clean', version='yes')
 
 
 if __name__ == "__main__":
