@@ -45,7 +45,7 @@ Attributes:
 ## AWS S3
 
 ```
-├── parole
+├── texas-data-bucket
     ├── data           <- data from different stages of the pipeline e.g. clean, processed, etc.
         ├── clean
              ├── 20220507-005720.csv
