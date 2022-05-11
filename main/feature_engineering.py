@@ -21,7 +21,7 @@ def main():
     # Concatenate the date features to the main dataframe
     df = pd.concat([df, date_features], axis=1)
 
-    # Write the output data to AWS S3 Bucket (path: /data/feature/ver=latest
+    # Write the output data to AWS S3 Bucket (path: /data/feature/ver=latest)
     write_output_data(df, 'data/feature', version='yes')
 
 

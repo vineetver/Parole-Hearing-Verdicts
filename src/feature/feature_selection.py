@@ -46,7 +46,7 @@ class DateFeature(FeatureEngineer):
         """
         Initialize the class.
         """
-        super().__init__('sentence', ['sentence_date', 'offence_date'])
+        super().__init__('sentence', ['sentence_date', 'offence_date', 'parole_eligibility_date', 'maximum_sentence_date'])
 
     def generate_feature(self, df: pd.DataFrame) -> pd.DataFrame:
         """
