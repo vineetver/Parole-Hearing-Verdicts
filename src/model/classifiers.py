@@ -67,7 +67,7 @@ class Model(ABC):
         """Cross validate the model."""
         pass
 
-    def feature_importance(self, X, Y):
+    def feature_importance(self):
         """Get the feature importance."""
         pass
 
