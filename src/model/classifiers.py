@@ -8,7 +8,7 @@ import seaborn as sns
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import GaussianNB
-from sklearn.model_selection import StratifiedShuffleSplit, train_test_split, StratifiedKFold
+from sklearn.model_selection import StratifiedShuffleSplit, StratifiedKFold
 from sklearn.metrics import confusion_matrix, matthews_corrcoef, ConfusionMatrixDisplay, f1_score, precision_score
 
 
@@ -150,9 +150,9 @@ class RandomForestModel(Model, ABC):
         """
         assert self.model is not None, "Model has not been trained yet."
         y_pred = self.model.predict(X)
-        mcc = matthews_corrcoef(Y, y_pred)
-        return mcc
-    
+        f1 = f1_score(Y, y_pred, average='weighted')
+        return f1
+
     def cross_validate(self, X, Y, n_splits: int = 10) -> List[float]:
         """Cross validate the model.
 
