@@ -58,7 +58,7 @@ Attributes:
              ├── 20220507-009280.csv
              ├── 20220507-198222.csv     
     ├── scratch        <- scratch space for intermediate data
-    ├── rawdata       <- raw data from TDCJ 
+    ├── paroledata       <- raw data from TDCJ 
 ```
 
 ## Model Wrapper
