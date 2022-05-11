@@ -94,7 +94,7 @@ class Model(ABC):
         pass
 
     def split(self, X, Y, test_size: float):
-        """Split the dataset into training and test sets."""
+        """Split the dataset into training and tests sets."""
         pass
 
     def normalize(self, X):

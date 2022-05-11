@@ -23,7 +23,7 @@ class Model(ABC):
         pass
 
     def split(self, X, Y, test_size: float):
-        """Split the data into training and test sets."""
+        """Split the data into training and tests sets."""
         pass
 
     def normalize(self, X):
@@ -53,4 +53,3 @@ class Model(ABC):
     def feature_importance(self, X, Y):
         """Get the feature importance."""
         pass
-   
