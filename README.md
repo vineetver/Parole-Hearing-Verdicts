@@ -128,7 +128,7 @@ class Model(ABC):
 ## Roadmap
 
 - [x] Prototype
-- [ ] Pipeline
+- [x] Pipeline
 
 ## Dependencies
 
