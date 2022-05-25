@@ -70,7 +70,7 @@ class DateFeature(FeatureEngineer):
         sentence_years = []
         for i in df['maximum_sentence_date']:
             if int(i.split('-')[0]) > current_date.year + 150:
-                sentence_years.append(9999)
+                sentence_years.append(150)
             else:
                 sentence_years.append(int(i.split('-')[0]) - current_date.year)
         df['years_from_sentence'] = sentence_years
