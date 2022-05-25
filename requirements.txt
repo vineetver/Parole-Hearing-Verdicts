@@ -6,4 +6,5 @@ keras
 sodapy
 boto3
 s3fs
+seaborn
 pyarrow

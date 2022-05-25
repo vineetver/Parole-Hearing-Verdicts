@@ -19,7 +19,7 @@ setup(name='Texas_Parole_Verdicts',
           'sodapy',
           'tensorflow',
           'jupyter',
-          'keras'
+          'seaborn'
       ],
       entry_points={
           'console_scripts': [
